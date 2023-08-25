@@ -29,3 +29,5 @@ class Generator(object):
                 G.append(g)
                 if len(G) == num:
                     return p, q, G  # Return p, q, and g as generator parameters
+    
+    default = (33599304334943, 1820705773, [25395732195142, 12433296605365]) # Default params

@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  python_server:
+    build: 
+      dockerfile:  docker/Dockerfile
+      target: python_server
+    ports:
+      - 50051:50051
+
+  python_client:
+    depends_on:
+      - python_server
+    build: 
+      dockerfile:  docker/Dockerfile
+      target: python_client
+

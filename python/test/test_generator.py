@@ -6,9 +6,9 @@ class TestGenerator:
     def test_get_generator_prime():
         # Test case for get_generator_prime method
         
-        bits = 1024
-        p, q, g = Generator.get_generator_prime(bits)
-        
+        bits = 20
+        p, q, G = Generator.get_generator_prime(bits)
+        g = G[0]
         assert isinstance(p, int)
         assert isinstance(q, int)
         assert isinstance(g, int)

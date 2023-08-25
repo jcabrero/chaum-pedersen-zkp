@@ -1,5 +1,5 @@
 import pytest
-from Prime import Prime
+from zkrypto import Prime
 
 class TestPrime:
     @staticmethod

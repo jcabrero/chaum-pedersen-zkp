@@ -1,5 +1,5 @@
 import pytest
-from schnorr_protocol import SchnorrProver, SchnorrVerifier
+from zkrypto import SchnorrProver, SchnorrVerifier
 
 class TestSchnorrProtocol:
     @staticmethod
