@@ -9,4 +9,7 @@ edition = "2021"
 rand = "0.8.5"
 num-bigint = { version = "0.4.4", features = ["rand"] }
 num-traits = "0.2.16"
+num-iter = "0.1.43"
+log = "0.4.20"
+env_logger = "0.10.0"
 
