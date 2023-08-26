@@ -8,7 +8,7 @@ use crate::zkrypto::prime::{miller_rabin_primality_test, n_bit_prime};
 //use prime::{miller_rabin_primality_test, n_bit_prime};
 
 
-#[derive(Clone)]
+#[derive(Clone, Default)]
 pub struct Generator {
     pub p: BigInt,
     pub q: BigInt,

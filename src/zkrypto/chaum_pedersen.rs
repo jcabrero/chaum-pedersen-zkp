@@ -1,14 +1,18 @@
 use num_bigint::{BigInt, RandBigInt};
 use num_traits::{Zero, One};
 use log::{debug};
+use std::fmt::Debug;
 
 use crate::zkrypto::generator::{Generator, get_default};
 
+#[derive(Default)]
 pub struct KeyPair{
     x: BigInt,
     pub y1: BigInt,
     pub y2: BigInt
 }
+
+
 
 impl KeyPair {
     fn new(g: &BigInt, h: &BigInt, p: &BigInt) -> KeyPair{
@@ -24,7 +28,7 @@ impl KeyPair {
     }
 }
 
-
+#[derive(Default)]
 pub struct ChaumPedersenProver {
     g: Generator,
     pub kp: KeyPair,
@@ -33,6 +37,12 @@ pub struct ChaumPedersenProver {
     r2: BigInt,
     c: BigInt,
     s: BigInt,
+}
+
+impl Debug for ChaumPedersenProver {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "ChaumPedersenProver <-")
+    }
 }
 
 impl ChaumPedersenProver {
@@ -85,7 +95,7 @@ impl ChaumPedersenProver {
 
 
 
-
+#[derive(Default)]
 pub struct ChaumPedersenVerifier {
     g : Generator,
     y1: BigInt,
@@ -95,6 +105,12 @@ pub struct ChaumPedersenVerifier {
     c: BigInt,
     s: BigInt,
 
+}
+
+impl Debug for ChaumPedersenVerifier {
+    fn fmt(&self, f: &mut std::fmt::Formatter) -> std::fmt::Result {
+        write!(f, "ChaumPedersenVerifier <-")
+    }
 }
 
 impl ChaumPedersenVerifier {
