@@ -71,12 +71,12 @@ def main(endpoint):
             logging.info("Authenticating User: %s" % (client.user))
             client.Authenticate()
 
-            time.sleep(0.5)
+            time.sleep(2)
             
 
             logging.info("Authenticating Async User: %s" % (client.user))
             client.AuthenticateAsync()
-            time.sleep(0.5)
+            time.sleep(2)
             
 
     

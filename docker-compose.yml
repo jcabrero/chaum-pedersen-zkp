@@ -1,13 +1,15 @@
 version: '3'
 
 services:
+  # Python server service
   python_server:
     build: 
       dockerfile:  docker/Dockerfile
       target: python_server
     ports:
-      - 50051:50051
+      - 50051:50051 # Port mapping for outside Docker network
 
+  # Python client service
   python_client:
     depends_on:
       - python_server
@@ -15,3 +17,18 @@ services:
       dockerfile:  docker/Dockerfile
       target: python_client
 
+  # Rust server service
+  rust_server:
+    build: 
+      dockerfile:  docker/Dockerfile
+      target: rust_server
+    ports:
+      - 50052:50051 # Port mapping for outside Docker network
+
+  # Rust client service
+  rust_client:
+    depends_on:
+      - rust_server
+    build: 
+      dockerfile:  docker/Dockerfile
+      target: rust_client
