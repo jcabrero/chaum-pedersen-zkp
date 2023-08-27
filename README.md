@@ -34,6 +34,12 @@ cargo run --bin server # For the server on one terminal
 cargo run --bin client # For the client on other terminal 
 ```
 
+## Run tests
+
+```bash
+cargo test
+```
+
 
 ## Disclaimer
 This implementation is provided for educational purposes and should not be used in production environments without proper security review. The code is meant to demonstrate the basic concept of the Chaum-Pedersen protocol and may not include all necessary security features.
