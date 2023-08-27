@@ -14,6 +14,17 @@ This project aims to demonstrate cryptographic protocols through implementations
 - The `tests` directory includes tests for the Rust codebase.
 
 
+## Run Rust and Python (x86_64)
+
+```bash
+docker compose up
+```
+
+To cleanup:
+```bash
+docker compose down -v --rmi all
+```
+
 ## Run Rust version
 
 ```bash
