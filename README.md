@@ -101,3 +101,10 @@ This implementation is provided for educational purposes and should not be used 
 
 ## License
 This project is licensed under the GPL3 License - see the LICENSE file for details.
+
+## Author
+José Cabrero Holgueras
+[jose@cabreroholgueras.com](mailto:jose@cabreroholgueras.com)
+
+[![image](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/jose-cabrero-holgueras/)
+[![image](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/jcabreroholg)
