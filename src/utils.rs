@@ -1,5 +1,6 @@
 use rand::Rng;
 
+// Generate a random string of length
 pub fn generate_random_string(length: usize) -> String {
     let charset: &[u8] = b"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     let mut rng = rand::thread_rng();

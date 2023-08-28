@@ -34,29 +34,34 @@ pub fn get_debug() -> Generator {
     };// Default params
 }
 
-pub fn get_generator_prime(bits: u64, num: i32) -> (BigInt, BigInt, Vec<BigInt>){
-    let mut g_list: Vec<BigInt> = vec!();
-    let n : BigInt = BigInt::one() << bits;
-    let q : BigInt = n_bit_prime(bits - 1);
+pub fn get_generator_prime(bits: u64, num: i32) -> (BigInt, BigInt, Vec<BigInt>) {
+    let mut g_list: Vec<BigInt> = vec!(); // Initialize an empty vector to store generator values
+    let n: BigInt = BigInt::one() << bits; // Calculate 2 raised to the power of bits
+    let q: BigInt = n_bit_prime(bits - 1); // Generate a prime number q with (bits - 1) bits
     
-    let mut p: BigInt = BigInt::zero();
-    let mut rng = rand::thread_rng();
+    let mut p: BigInt = BigInt::zero(); // Initialize p with zero
+    let mut rng = rand::thread_rng(); // Initialize a random number generator
 
+    // Generate a prime number p such that p = k * q + 1 using a loop
     while !miller_rabin_primality_test(&p, 5) {
-        let k = rng.gen_bigint_range(&BigInt::one(), &n);
-        p = k * &q + 1; // Find aprime such that k * q + 1
+        let k = rng.gen_bigint_range(&BigInt::one(), &n); // Generate a random integer k in the range [1, n)
+        p = k * &q + 1; // Calculate p = k * q + 1
     }
+    
+    // Loop to find generator values
     loop {
-        let h: BigInt = rng.gen_bigint_range(&BigInt::one(), &n);
-        let g: BigInt = h.modpow(&((p.clone() - 1)/q.clone()), &p);
-        if g != BigInt::one() {
-            g_list.push(g.clone());
-            if g_list.len() as u32 == num as u32 {
-                return (p, q, g_list);
+        let h: BigInt = rng.gen_bigint_range(&BigInt::one(), &n); // Generate a random integer h in the range [1, n)
+        let g: BigInt = h.modpow(&((p.clone() - 1) / q.clone()), &p); // Calculate g = h^((p - 1) / q) mod p
+        
+        if g != BigInt::one() { // Check if g is not equal to 1
+            g_list.push(g.clone()); // Add g to the list of generator values
+            if g_list.len() as u32 == num as u32 { // Check if the desired number of generators has been found
+                return (p, q, g_list); // Return the prime p, prime q, and the list of generator values
             }
         }
     }
 }
+
 
 #[cfg(test)]
 mod tests{
